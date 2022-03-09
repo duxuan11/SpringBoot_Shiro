@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>首页</h1>
+ <!--判断是否有用户 有登录用户就不显示-->
+<div th:if="${session.logined} == null">
+    <a th:href="@{/toLogin}">登录</a>
+</div>
+<div th:if="${session.logined} != null">
+    <a th:href="@{/logout}">注销</a>
+</div>
+
+<a th:href="@{/user/add}">add</a>|<a th:href="@{/user/update}">update</a>
+
+
+</body>
+</html>
